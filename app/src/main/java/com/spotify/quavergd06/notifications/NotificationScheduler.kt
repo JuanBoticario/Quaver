@@ -9,7 +9,6 @@ import android.content.Context
 import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
-import android.os.Build
 import android.util.Log
 import android.widget.Toast
 import java.util.Locale
