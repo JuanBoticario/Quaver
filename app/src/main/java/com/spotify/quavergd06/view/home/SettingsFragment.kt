@@ -8,7 +8,6 @@ import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
 import com.spotify.quavergd06.R
 import com.spotify.quavergd06.model.ThemeManager
-import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import com.spotify.quavergd06.database.QuaverDatabase
