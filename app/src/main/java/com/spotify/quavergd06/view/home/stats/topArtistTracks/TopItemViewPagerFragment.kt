@@ -32,7 +32,7 @@ class TopItemViewPagerFragment : Fragment() {
         Log.d(TAG, "setUpViewPager")
 
         val itemClass = args.itemClass
-        itemClass?.let { setUpViewPager(it) }
+        setUpViewPager(itemClass)
         setUpViewPager(itemClass)
     }
 
