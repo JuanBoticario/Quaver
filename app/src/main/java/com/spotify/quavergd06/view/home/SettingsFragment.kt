@@ -8,7 +8,6 @@ import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
 import com.spotify.quavergd06.R
 import com.spotify.quavergd06.model.ThemeManager
-import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import com.spotify.quavergd06.database.QuaverDatabase
@@ -16,6 +15,7 @@ import com.spotify.quavergd06.databinding.FragmentSettingsBinding
 import com.spotify.quavergd06.model.LocaleManager
 import com.spotify.quavergd06.util.AppContainer
 import com.spotify.quavergd06.view.LoginActivity
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -23,6 +23,8 @@ import kotlinx.coroutines.withContext
 class SettingsFragment : PreferenceFragmentCompat() {
 
     private var _binding: FragmentSettingsBinding? = null
+
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preferences, rootKey)
@@ -122,7 +124,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         alertDialogBuilder.setPositiveButton(context?.getString(R.string.yes)) { dialog, which ->
 
             lifecycleScope.launch {
-                withContext(Dispatchers.IO) {
+                withContext(dispatcher) {
                     // Código para realizar operaciones de base de datos
                     AppContainer(requireContext()).clearAll()
                     clearUserToken()
